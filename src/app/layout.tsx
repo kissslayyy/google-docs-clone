@@ -8,6 +8,7 @@ import { ConvexClientProvider } from "@/components/convex-client-provider";
 import "@liveblocks/react-ui/styles.css";
 import "@liveblocks/react-tiptap/styles.css";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,12 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}
+        className={`${inter.className} flex flex-col min-h-screen`}
       >
         <NuqsAdapter>
           <ConvexClientProvider>
-            <Toaster />
-            {children}
+            <main className="flex-grow">
+              <Toaster />
+              {children}
+            </main>
+            <Footer />
           </ConvexClientProvider>
         </NuqsAdapter>
       </body>
